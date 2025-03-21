@@ -9,8 +9,7 @@ Create a new instance (droplet, instance) with a Linux OS installed (e.g., Ubunt
 2. Setting Up SSH
 On your local computer, create two pairs of SSH keys using the command:
 
-    ```bash
-    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+        ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
     
 Make sure to specify unique names for the key files when prompted.
 
@@ -46,11 +45,9 @@ Open the SSH configuration file:
 
 For Linux
 
-    ```bash
     nano ~/.ssh/config
   Add the following content:
 
-    Plain Text
     Host alias 
         HostName server-ip
         User user
@@ -66,7 +63,6 @@ For Windows:
     notepad C:\Users\username\.ssh\config
   Add the following content:
 
-    Plain Text
     Host alias 
         HostName server-ip
         User user
@@ -84,16 +80,14 @@ Save the file and close the editor. Now you can connect to the server using the 
 6. Installing fail2ban on the Server
 Install fail2ban:
 
-    ```bash
-    sudo apt update
-    sudo apt install fail2ban
+
+        sudo apt update
+        sudo apt install fail2ban
 Configure fail2ban by editing the configuration file:
     
-    bash
     sudo nano /etc/fail2ban/jail.local
 Enable the necessary settings, for example, for SSH:
 
-    Plain Text
     [sshd]
     enabled = true
     port = ssh
@@ -102,7 +96,6 @@ Enable the necessary settings, for example, for SSH:
     bantime = 600
 Restart fail2ban:
 
-    bash
     sudo systemctl restart fail2ban
 
 
